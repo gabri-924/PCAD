@@ -52,32 +52,3 @@ public class RW3 extends RWBasic{
         }
     }
 }
-/*
-class ReaderRW implements Runnable {
-    private RW rw;
-    private int id;
-
-    public ReaderRW(RW rw, int id) { 
-        this.rw = rw; 
-        this.id = id; 
-    }
-    
-    @Override
-    public void run() {
-        int val = rw.read();
-        System.out.println("Reader " + id + " ha letto: " + val);
-    }
-}
-
-class WriterRW implements Runnable {
-    private RW rw;
-    private int id;
-    public WriterRW(RW rw, int id) { this.rw = rw; this.id = id; }
-
-    @Override
-    public void run() {
-        rw.write();
-        System.out.println("Writer " + id + " ha incrementato");
-    }
-}
-*/ 

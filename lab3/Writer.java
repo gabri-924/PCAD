@@ -11,5 +11,6 @@ public class Writer implements Runnable{
     public void run(){
         rw.write();
         System.out.println("Il valore di data è stato incrementato dal writer " + id);
+        System.out.flush();
     }
 }

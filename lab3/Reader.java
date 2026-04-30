@@ -10,5 +10,6 @@ public class Reader implements Runnable{
     @Override
     public void run(){
         System.out.println("Reader " + id + " Valore di data: " + rw.read());
+        System.out.flush();
     }
 }

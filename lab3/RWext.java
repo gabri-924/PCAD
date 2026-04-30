@@ -5,15 +5,14 @@ public class RWext extends RWBasic{
     //Per garantire l'alternanza
     private boolean dataToRead = false;
 
-    //METODI DI LETTURA DEL PORCO BASTARDO CHE E' MEZZANOTTE E QUARANTA
-
     private synchronized void startRead(){
         while (writerAttivi) {
             try { 
                 wait();
             } catch (InterruptedException e) {}
-            numReaders++;
+            
         }
+        numReaders++;
     }
 
     private synchronized void endRead(){
@@ -36,7 +35,6 @@ public class RWext extends RWBasic{
         return valore;
     }
 
-    //METODI DI SCRITTURA DEL PORCO 2.0 CHE E' L'UNA
 
     private synchronized void startWrite(){
         while (writerAttivi || numReaders > 0 || dataToRead) {
@@ -47,10 +45,7 @@ public class RWext extends RWBasic{
 
     private synchronized void endWrite(){
         writerAttivi = false;
-
-        //per farlo leggere a quegli stronzi dei reader
         dataToRead = true;
-
         notifyAll();
     }
     

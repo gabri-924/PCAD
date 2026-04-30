@@ -8,7 +8,6 @@ public class RWBasic{
     public void write(){
         int tmp = data;
         try {
-            // Lo sleep rende l'errore sistematico forzando i thread a sovrapporsi
             Thread.sleep(10); 
             
         } catch (InterruptedException e) {

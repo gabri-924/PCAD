@@ -5,7 +5,6 @@ public class MainEs3 {
         Thread[] r = new Thread[numThread];
         Thread[] w = new Thread[numThread];
 
-        // Avvio dei thread
         for (int i = 0; i < numThread; i++) {
             r[i] = new Thread(new Reader(rw, i));
             w[i] = new Thread(new Writer(rw, i));

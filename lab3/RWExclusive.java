@@ -4,7 +4,6 @@ public class RWExclusive extends RWBasic{
         return super.read();
     }
 
-    // Sincronizziamo la scrittura
     @Override
     public synchronized void write() {
         super.write();

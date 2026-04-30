@@ -6,27 +6,22 @@ public class MainEs4{
         Thread[] r = new Thread[n];
         Thread[] w = new Thread[n];
 
-        // Creazione thread
         for (int i = 0; i < n; i++) {
             r[i] = new Thread(new Reader(shared, i));
             w[i] = new Thread(new Writer(shared, i));
         }
 
-        // Avvio thread
-        // Nota: se avviassi tutti i writer prima dei lettori, 
-        // vedresti i writer bloccarsi uno dopo l'altro.
         for (int i = 0; i < n; i++) {
-            w[i].start();
-            try{Thread.sleep(10);}catch(InterruptedException e){}
             r[i].start();
-            try{Thread.sleep(10);}catch(InterruptedException e){}
+            try{Thread.sleep(15);}catch(InterruptedException e){}
+            w[i].start();
+            try{Thread.sleep(15);}catch(InterruptedException e){}
         }
 
-        // Join
         for (int i = 0; i < n; i++) {
             try {
-                w[i].join();
                 r[i].join();
+                w[i].join();
             } catch (InterruptedException e) { e.printStackTrace(); }
         }
 
